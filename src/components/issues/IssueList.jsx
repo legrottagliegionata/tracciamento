@@ -2,6 +2,7 @@ import React from "react";
 import IssueSummary from "./IssueSummary";
 
 const IssueList = ({ issues, uid, users, title, lista }) => {
+  console.log(issues);
   if (issues)
     return (
       <div>
@@ -9,7 +10,7 @@ const IssueList = ({ issues, uid, users, title, lista }) => {
         <div className=" section section-fixed no-scrollbar mt-0 p-2 pb-0 white-01">
           {issues &&
             issues.map(issue => {
-              return <IssueSummary usecase={lista} issue={issue} key={issue.id} users={users} />;
+              return <IssueSummary issueId={issue.id} key={issue.id} users={users} />;
             })}
         </div>
       </div>

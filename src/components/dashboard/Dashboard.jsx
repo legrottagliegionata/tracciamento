@@ -13,15 +13,15 @@ class Dashboard extends Component {
     if (usecase) {
       const requisiti = usecase.filter(item => item.tipo === "RQ");
       const us = usecase.filter(item => item.tipo === "UC");
-      console.log("us", us);
+
       return (
         <div className="dashboard container ">
           <div className="row">
             <div className="col s12 m6 p-0 pb-2 ">
-              <IssueList lista={us} issues={requisiti} uid={auth.uid} users={users} title="Requisiti" />
+              <IssueList issues={requisiti} uid={auth.uid} users={users} title="Requisiti" />
             </div>
             <div className="col s12 m6 ">
-              <IssueList lista={requisiti} issues={us} uid={auth.uid} users={users} title="Casi d'uso" />
+              <IssueList issues={us} uid={auth.uid} users={users} title="Casi d'uso" />
             </div>
           </div>
         </div>

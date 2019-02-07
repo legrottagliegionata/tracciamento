@@ -23,6 +23,7 @@ class DoneIssue extends Component {
     const id = { id: this.props.idIssue };
     e.preventDefault();
     this.props.updateUC({ ...this.props.issue, ...this.state, ...id });
+    console.log("props", this);
   };
 
   componentDidMount() {
