@@ -16,6 +16,7 @@ class issueDetails extends Component {
       const listaCollegata =
         issue.lista &&
         issue.lista.map((item, index) => {
+          console.log("itam " + index + ": ", item);
           return (
             <li key={index + item} className="collection-item">
               {lista.filter(itemLI => itemLI.id === item)[0].title}
