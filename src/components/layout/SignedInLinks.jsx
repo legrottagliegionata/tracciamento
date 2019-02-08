@@ -32,9 +32,9 @@ const SignedInLinks = props => {
               {profile.firstName} {profile.lastName}
             </span>
           </NavLink>
-          <a>
+          <span>
             <span className="white-text email">{auth.email}</span>
-          </a>
+          </span>
         </div>
       </li>
       {/* ----------------------------------------------- */}
@@ -45,9 +45,9 @@ const SignedInLinks = props => {
         </NavLink>
       </li>
       <li>
-        <a onClick={props.signOut} className="sidenav-close">
+        <span onClick={props.signOut} className="sidenav-close">
           Esci
-        </a>
+        </span>
       </li>
       <li>
         <NavLink to="/profile" className="btn btn-floating pink lighten-1 hide-on-med-and-down sidenav-close">

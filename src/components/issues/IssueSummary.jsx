@@ -2,12 +2,10 @@ import React, { Component } from "react";
 import moment from "moment";
 import "moment/locale/it";
 import { Link } from "react-router-dom";
-import { compose } from "redux";
 import { connect } from "react-redux";
-import { firestoreConnect } from "react-redux-firebase";
 class IssueSummary extends Component {
   render() {
-    const { issueId, users, usecase } = this.props;
+    const { issueId, usecase } = this.props;
 
     moment.locale("it");
     const issue = usecase && usecase.filter(item => item.id === issueId)[0];
@@ -35,12 +33,8 @@ class IssueSummary extends Component {
 }
 const mapStateToProps = state => {
   return {
-    usecase: state.firestore.ordered.usecase,
     auth: state.firebase.auth
   };
 };
 
-export default compose(
-  connect(mapStateToProps),
-  firestoreConnect([{ collection: "usecase", orderBy: ["createdAt", "desc"] }])
-)(IssueSummary);
+export default connect(mapStateToProps)(IssueSummary);

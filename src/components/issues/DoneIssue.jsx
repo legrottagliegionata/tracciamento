@@ -23,7 +23,8 @@ class DoneIssue extends Component {
     const id = { id: this.props.idIssue };
     e.preventDefault();
     this.props.updateUC({ ...this.props.issue, ...this.state, ...id });
-    console.log("props", this);
+
+    //this.props.render();
   };
 
   componentDidMount() {
@@ -34,7 +35,7 @@ class DoneIssue extends Component {
   }
 
   render() {
-    const { lista, issue } = this.props;
+    const { lista } = this.props;
 
     return (
       //Modal Structure
@@ -43,7 +44,7 @@ class DoneIssue extends Component {
           <h4>Descrizione delle soluzione</h4>
           <form className="white" onSubmit={this.handleSubmit}>
             <div className="input-field col s12">
-              <select multiple defaultValue="" name="listaS" className="valid invalid" onChange={this.handleChange}>
+              <select multiple className="valid invalid" onChange={this.handleChange}>
                 {lista &&
                   lista.map(element => {
                     return (

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import IssueList from "../issues/IssueList";
-import Notifications from "./Notifications";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
@@ -18,10 +17,10 @@ class Dashboard extends Component {
         <div className="dashboard container ">
           <div className="row">
             <div className="col s12 m6 p-0 pb-2 ">
-              <IssueList issues={requisiti} uid={auth.uid} users={users} title="Requisiti" />
+              <IssueList usecase={usecase} issues={requisiti} uid={auth.uid} users={users} title="Requisiti" />
             </div>
             <div className="col s12 m6 ">
-              <IssueList issues={us} uid={auth.uid} users={users} title="Casi d'uso" />
+              <IssueList usecase={usecase} issues={us} uid={auth.uid} users={users} title="Casi d'uso" />
             </div>
           </div>
         </div>

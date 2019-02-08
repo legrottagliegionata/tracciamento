@@ -28,22 +28,11 @@ class CreateIssue extends Component {
     e.preventDefault();
     console.log(this.state.tipo);
     this.props.createUC({ ...this.state });
-    /*switch (this.state.tipo) {
-      case "UC":
-        this.props.createUC({ ...this.state });
-        console.log("UC creato");
-        break;
-      case "RQ":
-        this.props.createRQ({ ...this.state });
-        console.log("UC creato");
-        break;
-      default:
-        break;
-    }*/
+
     this.props.history.push("/");
   };
   render() {
-    const { auth, users } = this.props;
+    const { auth } = this.props;
     if (!auth.uid) return <Redirect to="/signin" />;
     return (
       <div className="container">
@@ -60,7 +49,7 @@ class CreateIssue extends Component {
           </div>
 
           <div className="input-field col s12">
-            <select required id="tipo" onChange={this.handleChange} required className="valid invalid">
+            <select id="tipo" onChange={this.handleChange} required className="valid invalid">
               <option defaultValue value="">
                 Seleziona un elemento
               </option>

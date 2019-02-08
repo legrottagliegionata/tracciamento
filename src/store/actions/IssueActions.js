@@ -37,7 +37,6 @@ export const updateUC = issue => {
 export const createUC = issue => {
   return (dispatch, getState, { getFirestore }) => {
     const firestore = getFirestore();
-    const profile = getState().firebase.profile;
     const authorId = getState().firebase.auth.uid;
     firestore
       .collection("usecase")
