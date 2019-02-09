@@ -18,38 +18,38 @@ class Navbar extends Component {
     const links = auth.uid ? <SignedInLinks profile={profile} navBar={this.sidenav} /> : <SignedOutLinks />;
     return (
       <React.Fragment>
-      <div className="navbar-fixed">
-        <nav>
-          <div className="nav-wrapper grey darken-3">
-            <div className="container">
-              <Link to="/" className="brand-logo">
-                Tracciamento requisiti
-              </Link>
-              <ul
-                className="right hide-on-med-and-down"
-                ref={sidenav => {
-                  this.sidenav = sidenav;
-                }}
-              >
-                {links}
-              </ul>
+        <div className="navbar-fixed">
+          <nav>
+            <div className="nav-wrapper grey darken-3">
+              <div className="container">
+                <Link to="/" className="brand-logo">
+                  Tracciamento requisiti
+                </Link>
+                <ul
+                  className="right hide-on-med-and-down"
+                  ref={sidenav => {
+                    this.sidenav = sidenav;
+                  }}
+                >
+                  {links}
+                </ul>
+              </div>
+              <a data-target="slide-out" className="right sidenav-trigger pointer">
+                <i className="material-icons">menu</i>
+              </a>
             </div>
-            <a data-target="slide-out" className="right sidenav-trigger">
-              <i className="material-icons">menu</i>
-            </a>
-          </div>
-        </nav>
-      </div>
-      <ul
-        id="slide-out"
-        className="sidenav"
-        ref={sidenav => {
-          this.sidenav = sidenav;
-        }}
-      >
-        {links}
-      </ul>
-    </React.Fragment>
+          </nav>
+        </div>
+        <ul
+          id="slide-out"
+          className="sidenav"
+          ref={sidenav => {
+            this.sidenav = sidenav;
+          }}
+        >
+          {links}
+        </ul>
+      </React.Fragment>
     );
   }
 }

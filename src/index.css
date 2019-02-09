@@ -2,6 +2,9 @@
   width: 8px;
 }
 
+.pointer {
+  cursor: pointer;
+}
 .no-scrollbar::-webkit-scrollbar {
   width: 0px;
 }
