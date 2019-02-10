@@ -21,18 +21,18 @@ export const updateUC = issue => {
   return (dispatch, getState, { getFirestore }) => {
     const firestore = getFirestore();
 
-    /*firestore
+    firestore
       .collection("usecase")
       .doc(issue.id)
       .update({
         lista: firestore.FieldValue.delete()
       })
       .then(() => {
-        dispatch({ type: "UPDATE_UC_SUCCESS" });
+        // dispatch({ type: "UPDATE_UC_SUCCESS" });
       })
       .catch(err => {
-        dispatch({ type: "UPDATE_UC_ERROR" }, err);
-      });*/
+        //dispatch({ type: "UPDATE_UC_ERROR" }, err);
+      });
 
     firestore
       .collection("usecase")
