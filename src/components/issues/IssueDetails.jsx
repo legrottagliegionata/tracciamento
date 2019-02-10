@@ -13,7 +13,7 @@ class issueDetails extends Component {
       const lista = usecase && usecase.filter(item => item.tipo !== issue.tipo);
 
       /* -----------------       QUESTA è LA MIA LISTA      --------------------- */
-      const listaCollegata =
+      /*const listaCollegata =
         issue.lista &&
         issue.lista.map((item, index) => {
           return (
@@ -21,12 +21,12 @@ class issueDetails extends Component {
               {lista.find(itemLI => itemLI.id === item).title}
             </li>
           );
-        });
+        });*/
 
       const done = issueId + "Done";
       if (!auth.uid) return <Redirect to="/signin" />;
       let user = users ? users[issue.authorId] : "";
-
+      console.log(issue);
       return (
         <div className="container section issue-details">
           <div className="card z-depth-0">
@@ -34,7 +34,14 @@ class issueDetails extends Component {
               <span className="grey-text">{issue.tipo}</span>
               <span className="card-title">{issue.title}</span>
               <p>{issue.content}</p>
-              <ul className="collection">{listaCollegata}</ul> {/*QUI INSERISCO LA*/}
+              <ul className="collection">
+                {issue &&
+                  issue.lista &&
+                  issue.lista.map((item, index) => {
+                    return <li key={index + item}>{item}</li>;
+                  })}
+              </ul>
+              {/*QUI INSERISCO LA*/}
             </div>
 
             <DoneIssue issue={issue} lista={lista} id={done} idIssue={issueId} tipo={issue.tipo} />

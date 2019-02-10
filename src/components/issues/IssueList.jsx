@@ -9,7 +9,7 @@ class IssueList extends Component {
       const i = "\\begin{table}      \\centering      \\begin{tabular}{ll}";
       const p = "\\end{tabular} \\end{table}";
       let exp = "";
-      this.props.issues.map((item, index, array) => {
+      this.props.issues.forEach((item, index, array) => {
         const pref = "\\begin{tabular}[c]{@{}l@{}}";
         const post = "\\end{tabular}";
         let collegati = "";
@@ -23,6 +23,7 @@ class IssueList extends Component {
         let toReturnP = "" + item.title + " & " + pref + collegati + post;
         if (index < array.length - 1) toReturnP += " \\\\";
         exp += toReturnP;
+        
       });
 
       const json = "text;charset=utf-8," + encodeURIComponent(i + exp + p);

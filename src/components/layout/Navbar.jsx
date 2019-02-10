@@ -34,9 +34,9 @@ class Navbar extends Component {
                   {links}
                 </ul>
               </div>
-              <a data-target="slide-out" className="right sidenav-trigger pointer">
+              <span data-target="slide-out" className="right sidenav-trigger pointer">
                 <i className="material-icons">menu</i>
-              </a>
+              </span>
             </div>
           </nav>
         </div>

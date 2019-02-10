@@ -1,6 +1,7 @@
 export const reassignIssue = issue => {
   return (dispatch, getState, { getFirestore }) => {
     const firestore = getFirestore();
+
     firestore
       .collection("issues")
       .doc(issue.id)
@@ -19,6 +20,20 @@ export const reassignIssue = issue => {
 export const updateUC = issue => {
   return (dispatch, getState, { getFirestore }) => {
     const firestore = getFirestore();
+
+    /*firestore
+      .collection("usecase")
+      .doc(issue.id)
+      .update({
+        lista: firestore.FieldValue.delete()
+      })
+      .then(() => {
+        dispatch({ type: "UPDATE_UC_SUCCESS" });
+      })
+      .catch(err => {
+        dispatch({ type: "UPDATE_UC_ERROR" }, err);
+      });*/
+
     firestore
       .collection("usecase")
       .doc(issue.id)
