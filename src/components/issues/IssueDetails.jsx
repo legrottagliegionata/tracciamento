@@ -8,7 +8,7 @@ import moment from "moment";
 class issueDetails extends Component {
   render() {
     const { auth, users, issueId, usecase } = this.props;
-    const issue = usecase && usecase.filter(item => item.id === issueId)[0];
+    const issue = usecase && usecase.find(item => item.id === issueId);
     if (issue) {
       const lista = usecase && usecase.filter(item => item.tipo !== issue.tipo);
 
@@ -16,10 +16,9 @@ class issueDetails extends Component {
       const listaCollegata =
         issue.lista &&
         issue.lista.map((item, index) => {
-          console.log("itam " + index + ": ", item);
           return (
             <li key={index + item} className="collection-item">
-              {lista.filter(itemLI => itemLI.id === item)[0].title}
+              {lista.find(itemLI => itemLI.id === item).title}
             </li>
           );
         });
@@ -37,13 +36,15 @@ class issueDetails extends Component {
               <p>{issue.content}</p>
               <ul className="collection">{listaCollegata}</ul> {/*QUI INSERISCO LA*/}
             </div>
-            <DoneIssue issue={issue} lista={lista} id={done} idIssue={issueId} tipo={issue.tipo} render={() => this.render} />
+
+            <DoneIssue issue={issue} lista={lista} id={done} idIssue={issueId} tipo={issue.tipo} />
 
             <div className="card-action">
               <button data-target={done} className="btn green white-text modal-trigger">
                 Risolvi
               </button>
             </div>
+
             <div className="card-action grey lighten-4 grey-text">
               <div>
                 Posted by {user.firstName} {user.lastName}

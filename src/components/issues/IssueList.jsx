@@ -15,7 +15,8 @@ class IssueList extends Component {
         let collegati = "";
         item.lista &&
           item.lista.forEach((item2, index2, array2) => {
-            let toReturn = this.props.usecase.filter(item3 => item3.id === item2)[0].title;
+            let toReturn =
+              this.props.usecase.filter(item3 => item3.id === item2)[0] && this.props.usecase.filter(item3 => item3.id === item2)[0].title;
             if (index2 < array2.length - 1) toReturn += " \\\\";
             collegati += toReturn;
           });
