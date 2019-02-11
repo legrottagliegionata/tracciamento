@@ -59,7 +59,4 @@ const mapStateToProps = (state, props) => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect(props => [{ collection: "usecase", storeAs: props.issueId, doc: props.issueId }])
-  /*spinnerWhileLoading(["thisUsecase"]),
-  // render empty message if projects are not found
-  renderIfEmpty(["thisUsecase"], "VUOTO")*/
 )(IssueSummary);
