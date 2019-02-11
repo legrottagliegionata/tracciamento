@@ -17,6 +17,7 @@
     "redux-firestore": "^0.5.7",
     "redux-thunk": "^2.3.0"
   },
+  "homepage": "http://localhost:8080/dashboard/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
