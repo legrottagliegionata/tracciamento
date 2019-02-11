@@ -45,9 +45,9 @@ const SignedInLinks = props => {
         </NavLink>
       </li>
       <li>
-        <span onClick={props.signOut} className="sidenav-close pointer">
+        <NavLink to="/signin" onClick={props.signOut} className="sidenav-close pointer">
           Esci
-        </span>
+        </NavLink>
       </li>
       <li>
         <NavLink to="/profile" className="btn btn-floating pink lighten-1 hide-on-med-and-down sidenav-close">

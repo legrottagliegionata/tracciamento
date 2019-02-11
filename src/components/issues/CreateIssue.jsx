@@ -10,7 +10,7 @@ class CreateIssue extends Component {
     title: "",
     content: "",
     tipo: "",
-    error: ""
+    lista: []
   };
   componentDidMount() {
     var elems = document.querySelectorAll("select");
@@ -38,6 +38,7 @@ class CreateIssue extends Component {
     this.props.history.push("/");
   };
   render() {
+    console.log(this.props);
     const { auth } = this.props;
     if (!auth.uid) return <Redirect to="/signin" />;
     return (

@@ -23,6 +23,7 @@ class DoneIssue extends Component {
     const id = { id: this.props.idIssue };
     e.preventDefault();
     this.props.updateUC({ ...this.props.issue, ...this.state, ...id });
+    this.props.history && this.props.history.push("/");
   };
 
   componentDidMount() {
@@ -33,16 +34,18 @@ class DoneIssue extends Component {
   }
 
   render() {
+    console.log(this.props);
     const { lista } = this.props;
 
     return (
       //Modal Structure
-      <div id={this.props.id} className="modal">
+      <div id={this.props.id} className="modal bottom-sheet h-100  ">
         <div className="modal-content">
           <h4>Descrizione delle soluzione</h4>
           <form className="white" onSubmit={this.handleSubmit}>
-            <div className="input-field col s12">
-              <select multiple className="valid invalid" onChange={this.handleChange}>
+            <div className="col s12">
+              <label>Tipo di elemento</label>
+              <select multiple className="" onChange={this.handleChange}>
                 {lista &&
                   lista.map(element => {
                     return (
@@ -52,7 +55,6 @@ class DoneIssue extends Component {
                     );
                   })}
               </select>
-              <label>Tipo di elemento</label>
             </div>
 
             <div className="input-field">

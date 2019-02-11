@@ -9,20 +9,24 @@ class IssueList extends Component {
       const i = "\\begin{table}      \\centering      \\begin{tabular}{ll}";
       const p = "\\end{tabular} \\end{table}";
       let exp = "";
+
+      /**
+       * Salvo nella variabile exp tutta la tabella da esportare
+       */
       this.props.issues.map((item, index, array) => {
         const pref = "\\begin{tabular}[c]{@{}l@{}}";
         const post = "\\end{tabular}";
         let collegati = "";
         item.lista &&
           item.lista.forEach((item2, index2, array2) => {
-            let toReturn =
-              this.props.usecase.filter(item3 => item3.id === item2)[0] && this.props.usecase.filter(item3 => item3.id === item2)[0].title;
+            let toReturn = this.props.usecase.find(item3 => item3.id === item2) && this.props.usecase.find(item3 => item3.id === item2).title;
             if (index2 < array2.length - 1) toReturn += " \\\\";
             collegati += toReturn;
           });
         let toReturnP = "" + item.title + " & " + pref + collegati + post;
         if (index < array.length - 1) toReturnP += " \\\\";
         exp += toReturnP;
+        return null;
       });
 
       const json = "text;charset=utf-8," + encodeURIComponent(i + exp + p);
@@ -37,7 +41,7 @@ class IssueList extends Component {
           </div>
           <div className=" section section-fixed no-scrollbar mt-0 p-2 pb-0 white-01">
             {issues &&
-              issues.map(issue => {
+              issues.map((issue, index) => {
                 return <IssueSummary usecase={usecase} issueId={issue.id} key={issue.id} users={users} />;
               })}
           </div>
