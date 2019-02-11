@@ -9,7 +9,8 @@ class CreateIssue extends Component {
   state = {
     title: "",
     content: "",
-    tipo: ""
+    tipo: "",
+    error: ""
   };
   componentDidMount() {
     var elems = document.querySelectorAll("select");
@@ -23,12 +24,17 @@ class CreateIssue extends Component {
     this.setState({
       [e.target.id]: e.target.value
     });
+
+    let error = e.target.parentNode.querySelector(".error");
+    if (error && e.target.value === "") {
+      error.innerHTML = "Campo obbligatorio";
+    } else if (error) {
+      error.innerHTML = "";
+    }
   };
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state.tipo);
     this.props.createUC({ ...this.state });
-
     this.props.history.push("/");
   };
   render() {
@@ -39,24 +45,26 @@ class CreateIssue extends Component {
         <form className="white" onSubmit={this.handleSubmit}>
           <h5 className="grey-text text-darken-3">Aggiungi</h5>
           <div className="input-field">
-            <input type="text" id="title" onChange={this.handleChange} required className="validate" />
+            <input type="text" id="title" onChange={this.handleChange} required className="validate" autoFocus />
             <label htmlFor="title">Titolo</label>
+
+            <span className="error red-text" />
           </div>
 
           <div className="input-field">
-            <textarea id="content" className="materialize-textarea" onChange={this.handleChange} />
+            <textarea id="content" className="materialize-textarea validate" onChange={this.handleChange} />
             <label htmlFor="content">Contenuto</label>
           </div>
 
-          <div className="input-field col s12">
-            <select id="tipo" onChange={this.handleChange} required className="valid invalid">
-              <option defaultValue value="">
-                Seleziona un elemento
-              </option>
+          <div className=" col s12">
+            <label>Tipo di elemento</label>
+            <select id="tipo" name="tipo" onChange={this.handleChange} className="validate browser-default" defaultValue="" required>
+              <option value="">Seleziona un elemento</option>
               <option value="UC">Caso d'uso</option>
               <option value="RQ">Requisito</option>
             </select>
-            <label>Tipo di elemento</label>
+
+            <span className="error red-text" />
           </div>
 
           <div className="input-field">
