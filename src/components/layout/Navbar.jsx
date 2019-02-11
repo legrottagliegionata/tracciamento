@@ -23,7 +23,7 @@ class Navbar extends Component {
             <div className="nav-wrapper grey darken-3">
               <div className="container">
                 <Link to="/" className="brand-logo">
-                  Tracciamento requisiti
+                  RQConnect
                 </Link>
                 <ul
                   className="right hide-on-med-and-down"
