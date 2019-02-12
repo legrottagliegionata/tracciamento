@@ -4,12 +4,12 @@ import "firebase/auth";
 
 // Replace this with your own config details
 var config = {
-  apiKey: "AIzaSyD387f1wDIMTel14deeoApJAbQQvfuv8eU",
-  authDomain: "test-b7b42.firebaseapp.com",
-  databaseURL: "https://test-b7b42.firebaseio.com",
-  projectId: "test-b7b42",
-  storageBucket: "test-b7b42.appspot.com",
-  messagingSenderId: "443693528829"
+  apiKey: "AIzaSyA5uvsfgSlPnaoacf1jIqWh_ArDO9dohsk",
+  authDomain: "rqconnect.firebaseapp.com",
+  databaseURL: "https://rqconnect.firebaseio.com",
+  projectId: "rqconnect",
+  storageBucket: "rqconnect.appspot.com",
+  messagingSenderId: "182894304479"
 };
 firebase.initializeApp(config);
 firebase.firestore().settings({ timestampsInSnapshots: true });
