@@ -65,12 +65,8 @@ const mapStateToProps = (state, ownProps) => {
     auth: state.firebase.auth,
     users: state.firestore.data.users,
     thisUsecase: state.firestore.data[id],
-    usecase: state.firestore.ordered.usecase,
-    lista: state.firestore.ordered.lista
+    usecase: state.firestore.ordered.usecase
   };
 };
 
-export default compose(
-  connect(mapStateToProps),
-  firestoreConnect(props => [{ collection: "usecase", storeAs: "lista", doc: props.issueId, subcollections: [{ collection: "lista" }] }])
-)(issueDetails);
+export default connect(mapStateToProps)(issueDetails);
