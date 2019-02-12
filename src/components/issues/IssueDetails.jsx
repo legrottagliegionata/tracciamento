@@ -64,8 +64,7 @@ const mapStateToProps = (state, ownProps) => {
     issueId: id,
     auth: state.firebase.auth,
     users: state.firestore.data.users,
-    thisUsecase: state.firestore.data[id],
-    usecase: state.firestore.ordered.usecase
+    thisUsecase: state.firestore.data[id]
   };
 };
 

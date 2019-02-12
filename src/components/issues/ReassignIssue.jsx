@@ -23,7 +23,6 @@ class ReassignIssue extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const user = this.props.users[this.state.userSelectedId];
-    console.log(user);
     const userSelectedName = user.firstName + " " + user.lastName;
     this.setState({ userSelectedName });
     this.props.reassignIssue({ ...this.props.issue, ...this.state });
